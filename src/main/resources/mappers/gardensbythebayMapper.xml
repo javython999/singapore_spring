@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="gardensbythebayMapper">
+   
+   <!-- Comment Insert -->
+   <insert id="insert">
+   	INSERT INTO BOARD_GARDENSBYTHEBAY (NICKNAME, CONTENT, STAR)
+   	VALUES (#{nickname}, #{content}, ${star})
+   </insert>
+   
+   
+   <!-- Comment List Read -->
+   <select id="select" resultType="com.myspring.vo.BoardVO">
+   	SELECT * 
+	FROM BOARD_GARDENSBYTHEBAY
+	ORDER BY ID DESC
+   </select>
+   
+   <!-- Delete Comment -->
+   <delete id="delete">
+   	DELETE BOARD_GARDENSBYTHEBAY 
+   	WHERE ID = #{id}
+   </delete>
+   
+   <update id="update">
+   	UPDATE BOARD_GARDENSBYTHEBAY 
+   	SET CONTENT = #{content}, STAR = #{star} 
+   	WHERE ID = #{id}
+   </update>
+   
+   <!-- 별점 평균점수 -->
+   <select id="starAVG" resultType="double">
+    SELECT AVG(STAR) 
+    FROM BOARD_GARDENSBYTHEBAY
+   </select>
+   
+</mapper>
