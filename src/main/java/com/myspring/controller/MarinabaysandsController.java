@@ -1,25 +1,35 @@
 package com.myspring.controller;
 
-import javax.inject.Inject;
-
+import com.myspring.board.domain.Board;
+import com.myspring.board.domain.BoardType;
+import com.myspring.board.domain.CommentRequestDto;
+import com.myspring.board.service.BoardService;
+import com.myspring.board.service.CommentService;
+import com.myspring.dao.MarinaDAOImpl;
+import com.myspring.vo.BoardVO;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.myspring.dao.MarinaDAO;
-import com.myspring.dao.MarinaDAOImpl;
-import com.myspring.vo.BoardVO;
+import javax.inject.Inject;
 
 @Controller
+@RequiredArgsConstructor
 public class MarinabaysandsController {
-	
+
+	private final CommentService commentService;
+	private final BoardService boardService;
+
 	@Inject
 	MarinaDAOImpl marinaDAO;
 	
 	// comment 추가
 	@RequestMapping("board/marinabaysands/inset.do")
-	public String insert(@ModelAttribute BoardVO boardVO) {
-		marinaDAO.insert(boardVO);
+	public String insert(CommentRequestDto commentReqeustDto) {
+		Board board = boardService.findByType(BoardType.MARINA_BAY_SANDS);
+
+
 		return "redirect:/board/marinabaysands#commentList";
 	}
 	
