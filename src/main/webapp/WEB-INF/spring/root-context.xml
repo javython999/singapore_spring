@@ -24,7 +24,10 @@
         <property name="jpaProperties">
             <props>
                 <!-- ddl-auto 속성 설정 -->
-                <prop key="hibernate.hbm2ddl.auto">update</prop>
+                <prop key="hibernate.hbm2ddl.auto">create</prop>
+                <prop key="hibernate.format_sql">true</prop>
+                <prop key="hibernate.physical_naming_strategy">org.hibernate.boot.model.naming.CamelCaseToUnderscoresNamingStrategy</prop>
+                <prop key="hibernate.implicit_naming_strategy">org.springframework.boot.orm.jpa.hibernate.SpringImplicitNamingStrategy</prop>
             </props>
         </property>
     </bean>
