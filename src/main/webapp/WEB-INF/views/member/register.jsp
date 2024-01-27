@@ -89,14 +89,14 @@
 			<%@include file="/WEB-INF/views/common/header.jsp" %>
 		</header>
 		<section id="regForm">
-			<form method="post" action="/member/insert.do" onsubmit="checkValue();">
-				<input type="text" placeholder="아이디를 입력하세요." name="id" class="inputId">
+			<form method="post" action="/member/insert" onsubmit="checkValue();">
+				<input type="text" placeholder="아이디를 입력하세요." name="loginId" class="loginId">
 				<div>　</div>
-				<input type="password" placeholder="비밀번호를 입력하세요." name="pw" class="inputPw">
+				<input type="password" placeholder="비밀번호를 입력하세요." name="loginPw" class="loginPw">
 				<div>　</div>
-				<input type="password" placeholder="비밀번호 확인." name="pwCheck" class="inputPwc">
+				<input type="password" placeholder="비밀번호 확인." name="pwCheck" class="pwCheck">
 				<div>　</div>
-				<input type="text" placeholder="닉네임을 입력하세요." name="nickname" class="inputNic">
+				<input type="text" placeholder="닉네임을 입력하세요." name="nickname" class="nickname">
 				<div>　</div>
 				<div>
 				<input type="submit" value="가입">
@@ -104,24 +104,6 @@
 				</div>
 			</form>			
 			
-		</section>
-		<section id="contents">
-			<a href="#">
-				<h1> 마리나 베이 샌즈(Marina Bay Sands) </h1>
-				<img src="/resources/img/marinabay/marinaBay.jpg" alt="marinaBay"/>
-			</a>
-			<a href="#">
-				<h1> 가든스 바이 더 베이(Gardens By The bay) </h1>
-				<img src="/resources/img/GardensByThebay/GardensByThebay.jpg" alt="GardensByThebay"/>
-			</a>
-			<a href="#">
-				<h1> 차이나 타운(ChinaTown) </h1>
-				<img src="/resources/img/ChinaTown/ChinaTown.jpg" alt="ChinaTown"/>
-			</a>
-			<a href="#">
-				<h1> 센토사 섬(Sentosa Island) </h1>
-				<img src="/resources/img/Sentosa/Sentosa.jpg" alt="Sentosa"/>
-			</a>
 		</section>
 		<footer>
 			<%@include file="/WEB-INF/views/common/footer.jsp" %>

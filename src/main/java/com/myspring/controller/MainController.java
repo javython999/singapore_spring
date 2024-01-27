@@ -38,14 +38,7 @@ public class MainController {
 		log.info("index");
 		return "index";
 	}
-	
-	// 회원가입 페이지
-	@GetMapping("/member/register")
-	public String memberRegister() throws Exception {
-		log.info("Member Register");
-		return "member/register";
-	}
-	
+
 	// 마리나베이샌즈 페이지
 	@GetMapping("/board/marinabaysands")
 	public String marinabaysands(Model model) throws Exception {

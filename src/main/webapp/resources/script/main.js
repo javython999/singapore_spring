@@ -1,36 +1,26 @@
 'use strict'
 
 function checkValue() {
-  if (!document.querySelector(".inputId").value) {
+  if (!document.querySelector(".loginId").value) {
     alert("아이디를 입력하세요.");
     return false;
   }
 
-  if (!document.querySelector(".inputPw").value) {
+  if (!document.querySelector(".loginPw").value) {
     alert("비밀번호를 입력하세요.");
     return false;
   }
 
   if (
-    document.querySelector(".inputPw").value !=
-    document.querySelector(".inputPwc").value
+    document.querySelector(".loginPw").value !==
+    document.querySelector(".pwCheck").value
   ) {
     alert("비밀번호가 일치하지 않습니다.");
     return false;
   }
 
-  if (!document.querySelector(".inputNic").value) {
+  if (!document.querySelector(".nickname").value) {
     alert("닉네임을 입력하세요.");
-    return false;
-  }
-
-  if (!document.querySelector(".inputName").value) {
-    alert("이름을 입력하세요.");
-    return false;
-  }
-
-  if (!document.querySelector(".inputEmail").value) {
-    alert("이메일을 입력하세요.");
     return false;
   }
 }

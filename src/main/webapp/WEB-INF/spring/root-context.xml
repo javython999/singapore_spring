@@ -24,7 +24,7 @@
         <property name="jpaProperties">
             <props>
                 <!-- ddl-auto 속성 설정 -->
-                <prop key="hibernate.hbm2ddl.auto">create</prop>
+                <prop key="hibernate.hbm2ddl.auto">update</prop>
             </props>
         </property>
     </bean>

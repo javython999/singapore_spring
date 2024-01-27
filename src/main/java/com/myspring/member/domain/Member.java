@@ -1,6 +1,7 @@
 package com.myspring.member.domain;
 
 
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -24,6 +25,7 @@ public class Member {
     private String nickname;
     private LocalDateTime regDateTime;
 
+    @Builder
     public Member(String loginId, String loginPw, String nickname, LocalDateTime regDateTime) {
         this.loginId = loginId;
         this.loginPw = loginPw;
