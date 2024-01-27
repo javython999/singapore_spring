@@ -2,7 +2,7 @@ package com.myspring.member.controller;
 
 import com.myspring.member.domain.Member;
 import com.myspring.member.domain.MemberRequestDto;
-import com.myspring.member.service.MemberRepository;
+import com.myspring.member.service.MemberService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
@@ -17,7 +17,7 @@ import java.time.LocalDateTime;
 @RequiredArgsConstructor
 public class MemberController {
 
-    private final MemberRepository memberRepository;
+    private final MemberService memberService;
 
     @GetMapping("/member/register")
     public String memberRegister() {
@@ -35,14 +35,14 @@ public class MemberController {
                 .regDateTime(LocalDateTime.now())
                 .build();
 
-        memberRepository.save(member);
+        memberService.save(member);
 
         return "index";
     }
 
     @PostMapping("/member/login")
     public String loginCheck(MemberRequestDto memberRequestDto, HttpSession session) {
-        Member findMember = memberRepository.findByLoginId(memberRequestDto.getLoginId());
+        Member findMember = memberService.loginCheck(memberRequestDto.getLoginId(), memberRequestDto.getLoginPw());
 
         if(findMember != null) {
             session.setAttribute("user_nickname", findMember.getNickname());
