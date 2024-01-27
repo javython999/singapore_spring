@@ -89,30 +89,39 @@
 		}
 
 
-		#contents> a:hover > img,
-		#contents> a:hover > h1 {
+		#contents> div > a:hover > img,
+		#contents> div > a:hover > h1 {
 			transform: scale(0.9);
 			border-radius: 30px;
 		}
 
-		#contents > a > img,
-		#contents > a > h1 {
+		#contents > div {
+			width: 100%;
+			position: relative;
+		}
+
+		#contents > div > a > img {
+			width: 100%;
+		}
+
+		#contents > div > a > img,
+		#contents > div > a > h1 {
 			transition: transform 200ms ease-in, border-radius 200ms ease-in;
 		}
 
 		#contents > a > img {
 			width: 100vw;
 		}
-		#contents > a > h1,
-		#contents > a > h2 {
-			font-size: 1.4rem;
-			color: white;
+		#contents > div > a > h1,
+		#contents > div > a > h2 {
+			font-size: 1.4vw;
+            z-index: 10;
 			position: absolute;
+			color: white;
 			background: rgba(5, 5, 5, 0.3);
 			border-radius: 5px;
-			z-index: 10;
-			left: 5vw;
-			bottom: 5vw;
+			left: 6vw;
+			bottom:4vw;
 		}
 
 		footer {
@@ -158,10 +167,16 @@
 	</section>
 	<section id="contents">
 		<c:forEach items="${boardList}" var="board" varStatus="loop">
+			<div>
 			<a href="/board/${board.id}">
-				<h1>${board.boardName}(${board.boardType}) <i class="fas fa-star"></i><fmt:formatNumber value="${MarinaStarAVG}" pattern=".00"/></h1>
+				<h1>
+					${board.boardName}(${board.boardType})
+					<i class="fas fa-star"></i>
+					<fmt:formatNumber value="${starAvgList[loop.index]}" pattern=".00"/>
+				</h1>
 				<img src="/resources/img/boardCover/boardCover${board.id}.jpg" alt="${board.boardName}"/>
 			</a>
+			</div>
 		</c:forEach>
 	</section>
 	<footer>
