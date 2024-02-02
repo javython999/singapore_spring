@@ -30,7 +30,7 @@ public class MainController {
 
 		model.addAttribute("boardList", boardList);
 		model.addAttribute("starAvgList", starAvgList);
-		return "index";
+		return "main/main.main";
 	}
 
 }

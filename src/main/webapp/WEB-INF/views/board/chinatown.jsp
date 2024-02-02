@@ -1,222 +1,126 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>싱가포르</title>
-<script src="/resources/script/jquery-3.5.1.min.js" defer></script>
-<script src="/resources/script/main.js" defer></script>
-<script src="/resources/script/board.js" defer></script>
-<script src="/resources/script/video.js" defer></script>
-<script src="https://kit.fontawesome.com/f87cacf99d.js" crossorigin="anonymous"></script>
-
-<style>
-	* {
-		margin: 0 auto;
-	}
-	
-	ul, li {
-		list-style: none;
-		padding: 0;
-	}
-	
-	a {
-		text-decoration: none;
-		color: inherit;
-	}
-	
-	#wrap {
-		width: 100vw;
-		height: 100%;
-		margin: 0 auto;
-	}
-	
-	#header {
-		padding-bottom: 10px;
-	}
-	#header > a {
-		margin: 0 auto;
-		display: flex;
-	}
-	#header > a > img {}
-	#header > div {
-		display: flex;
-	}
-	
-	ul {
-		width: 100vw;
-		display: flex;
-		justify-content: space-evenly;
-		padding-bottom: 10px;
-	}
-	
-	ul > li {
-		width: 25%;
-		border: 1px solid #0e6a61;
-		text-align: center;
-		display: block;
-	}
-	
-	ul > li:hover {
-		background: #0e6a61;
-		color: white;
-	}
-	
-	ul > li > a {
-		display: block;
-	}
-	
-	#banner {
-		width: 100vw;
-		height: 100%;
-		display: block;
-		position: relative;
-	}
-	
-	#banner > div > img {
-		display:block;
-		width: 100vw;
-	}
-	#banner > div {
-		width: 100vw;
-	}
-	
-	#banner > div > .starAVG {
-		z-index: 5rem;
-		position: absolute;
-		bottom: 10px;
-		left: 6vw;
-		font-size: 40px;
-		color: white;
-	}
-	
-	#contents {
-		margin: 0 auto;
-	}
-	
-	.dom {
-		width: 50vw;
-		float: left;
-	}
-	
-	#contents > article {
-		width: 100vw;
-		padding-top: 80px;
-		text-align: center;
-	}
-	
-	#contents > article > img,
-	#contents > article > div > img {
-		width: 100vw;
-		text-align: center;
-	}
-	
-	.pic1 {
-		width: 100vw;
-		border-radius: 5px;
-	}
-	
-	.pic1 > img {
-		width: 50vw;
-		float: left;
-	}
-	
-	.clear {
-		content: "";
-		clear: both;
-		display: block;s
-	}
-	
-	#contents > article > h1,
-	#contents > article > h3,
-	#contents > article > div > h1,
-	#contents > article > div > h3 {
-		width: 90vw;
-	}
-	
-	.reply {
-		width: 70vw;
-		height: 10vh;
-	}
-	
-	.commentSection {
-		padding-top: 30px;
-		text-align: center;
-	}
-	
-	.commentList {
-		text-align: center;
-	}
-	
-	
-	.UserComment {	
-		width: 70vw;
-		padding-bottom: 10px;
-	}
-	
-	.starScore {
-		color: blue;
-	}
-	
-	
-	footer {
-		text-align: center;
-		padding: 100px 0 50px 0;
-	}
-	
-	.upbtn {
-		position: fixed;
-		bottom: 50px;
-		right: 50px;
-		z-index: 100;
-		font-size: 2rem;
-		color: #0e6a61;
-		opacity: 0;
-		transition: opacity 250ms ease-in;
-		pointer-events: none;
-	}
-	
-	.upbtn.visible {
-		opacity: 1;
-		pointer-events: auto;
-		cursor: pointer;
-	}
-	
-</style>
-</head>
-<body>
-	<section id="wrap">
-	<i class="far fa-arrow-alt-circle-up upbtn"></i>
-		<header id="header">
-			<%@include file="/WEB-INF/views/common/header.jsp" %>
-		</header>
-		<nav>
-			<%@include file="/WEB-INF/views/common/nav.jsp" %>
-		</nav>
-		<section id="banner">
-			<div>
-			<img src="/resources/img/ChinaTown/ChinaTown.jpg" alt="ChinaTown"/>
-			<span class="starAVG"><i class="fas fa-star"></i><fmt:formatNumber value="${starAVG}" pattern=".00"/> / 5</span>
-			</div>
-		</section>
-		<section id="contents">
-			<article>
-				<%@include file="/WEB-INF/views/article/chinatown.jsp" %>
-			</article>
-			<section class="commentSection">
-				<%@include file="/WEB-INF/views/common/CommentWrite.jsp" %>
-			</section>	
-			<section class="commentList">
-				<%@include file="/WEB-INF/views/common/CommentList.jsp" %>
-			</section>		
-		</section>
-		<footer>
-			<%@include file="/WEB-INF/views/common/footer.jsp" %>
-		</footer>
-	</section>
-</body>
-</html>
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<article>
+	<h3>"과거와 현재의 조화"</h3>
+	<h1>
+		어둠이 내려 앉은 차이나타운 거리에는 <br>
+		조명, 음악, 활기가 가득해<br>
+		과거와 현재가 더욱 화려한 방식으로<br>
+		조화되는 모습을 보실 수 있습니다.
+	</h1>
+	<br>
+	<br>
+	<br>
+	<img src="/resources/img/ChinaTown/ChinaTown2.jpg" alt="ChinaTown"/>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<h3>"다양한 문화, 독특한 건축물"</h3>
+	<h1>
+		사찰과 사원이 곳곳에 자리한 차이나 타운에서는<br>
+		다양한 문화적 관습, 종교, 독특한 건축물을<br>
+		만나보실 수 있습니다.
+	</h1>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<img src="/resources/img/ChinaTown/ChinaTown3.jpg" alt="ChinaTown"/>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<h3>"차이나타운 헤리티지"</h3>
+	<h1>
+		인터랙티브 전시와 몰입형 채험으로<br>
+		싱가포르 역사의 흐름을 경험해보세요.<br>
+	</h1>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<img src="/resources/img/ChinaTown/ChinaTown4.jpg" alt="ChinaTown"/>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<h3>"중국 문화유산 이야기"</h3>
+	<h1>
+		그 어디에서도 찾아 볼 수 없는 차이나타운.<br>
+		깊은 사원, 세련된 바, 싱가포르 유산의 매력을 경험해보세요.<br>
+	</h1>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<img src="/resources/img/ChinaTown/ChinaTown5.jpg" alt="ChinaTown"/>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<h3>"숍하우스"</h3>
+	<h1>
+		아름답게 복원한 숍하우스 안에 자리한<br>
+		차이나타운 헤리티지센터는<br>
+		1950년대 인테리어를 재현하여<br>
+		차이나타운 초기 주민들의 삶을 엿보게 해줍니다.<br>
+	</h1>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<img src="/resources/img/ChinaTown/ChinaTown6.jpg" alt="ChinaTown"/>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<h3>"불아사"</h3>
+	<h1>
+		인상적인 외관을 가진 불아사(Buddha Tooth Relic Temple)<br>
+		내부에는 수세기 역사를 지닌 유물과 불교 역사를 들려주는<br>
+		전시품들이 소장되어있습니다.
+	</h1>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<img src="/resources/img/ChinaTown/ChinaTown7.jpg" alt="ChinaTown"/>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<h3>"놓칠 수 없는 06시 30분"</h3>
+	<h1>
+		문화적 화려함과 트레디한 생활 문화 시설<br>
+		오래된 예배당으로 하루 종일 시간을 보내기에 좋은 곳입니다.
+	</h1>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<img src="/resources/img/ChinaTown/ChinaTown8.jpg" alt="ChinaTown"/>
+</article>

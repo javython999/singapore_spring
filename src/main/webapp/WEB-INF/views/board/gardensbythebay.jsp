@@ -1,222 +1,106 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>싱가포르</title>
-<script src="/resources/script/jquery-3.5.1.min.js" defer></script>
-<script src="/resources/script/main.js" defer></script>
-<script src="/resources/script/board.js" defer></script>
-<script src="/resources/script/video.js" defer></script>
-<script src="https://kit.fontawesome.com/f87cacf99d.js" crossorigin="anonymous"></script>
-
-<style>
-	* {
-		margin: 0 auto;
-	}
-	
-	ul, li {
-		list-style: none;
-		padding: 0;
-	}
-	
-	a {
-		text-decoration: none;
-		color: inherit;
-	}
-	
-	#wrap {
-		width: 100vw;
-		height: 100%;
-		margin: 0 auto;
-	}
-	
-	#header {
-		padding-bottom: 10px;
-	}
-	#header > a {
-		margin: 0 auto;
-		display: flex;
-	}
-	#header > a > img {}
-	#header > div {
-		display: flex;
-	}
-	
-	ul {
-		width: 100vw;
-		display: flex;
-		justify-content: space-evenly;
-		padding-bottom: 10px;
-	}
-	
-	ul > li {
-		width: 25%;
-		border: 1px solid #0e6a61;
-		text-align: center;
-		display: block;
-	}
-	
-	ul > li:hover {
-		background: #0e6a61;
-		color: white;
-	}
-	
-	ul > li > a {
-		display: block;
-	}
-	
-	#banner {
-		width: 100vw;
-		height: 100%;
-		display: block;
-		position: relative;
-	}
-	
-	#banner > div > img {
-		display:block;
-		width: 100vw;
-	}
-	#banner > div {
-		width: 100vw;
-	}
-	
-	#banner > div > .starAVG {
-		z-index: 5rem;
-		position: absolute;
-		bottom: 10px;
-		left: 6vw;
-		font-size: 40px;
-		color: white;
-	}
-	
-	#contents {
-		margin: 0 auto;
-	}
-	
-	.dom {
-		width: 50vw;
-		float: left;
-	}
-	
-	#contents > article {
-		width: 100vw;
-		padding-top: 80px;
-		text-align: center;
-	}
-	
-	#contents > article > img,
-	#contents > article > div > img {
-		width: 100vw;
-		text-align: center;
-	}
-	
-	.pic1 {
-		width: 100vw;
-		border-radius: 5px;
-	}
-	
-	.pic1 > img {
-		width: 50vw;
-		float: left;
-	}
-	
-	.clear {
-		content: "";
-		clear: both;
-		display: block;s
-	}
-	
-	#contents > article > h1,
-	#contents > article > h3,
-	#contents > article > div > h1,
-	#contents > article > div > h3 {
-		width: 90vw;
-	}
-	
-	.reply {
-		width: 70vw;
-		height: 10vh;
-	}
-	
-	.commentSection {
-		padding-top: 30px;
-		text-align: center;
-	}
-	
-	.commentList {
-		text-align: center;
-	}
-	
-	
-	.UserComment {	
-		width: 70vw;
-		padding-bottom: 10px;
-	}
-	
-	.starScore {
-		color: blue;
-	}
-	
-	
-	footer {
-		text-align: center;
-		padding: 100px 0 50px 0;
-	}
-	
-	.upbtn {
-		position: fixed;
-		bottom: 50px;
-		right: 50px;
-		z-index: 100;
-		font-size: 2rem;
-		color: #0e6a61;
-		opacity: 0;
-		transition: opacity 250ms ease-in;
-		pointer-events: none;
-	}
-	
-	.upbtn.visible {
-		opacity: 1;
-		pointer-events: auto;
-		cursor: pointer;
-	}
-	
-</style>
-</head>
-<body>
-	<section id="wrap">
-	<i class="far fa-arrow-alt-circle-up upbtn"></i>
-		<header id="header">
-			<%@include file="/WEB-INF/views/common/header.jsp" %>
-		</header>
-		<nav>
-			<%@include file="/WEB-INF/views/common/nav.jsp" %>
-		</nav>
-		<section id="banner">
-			<div>
-			<img src="/resources/img/GardensByThebay/GardensByThebay.jpg" alt="GardensByThebay"/>
-			<span class="starAVG"><i class="fas fa-star"></i><fmt:formatNumber value="${starAVG}" pattern=".00"/> / 5</span>
-			</div>
-		</section>
-		<section id="contents">
-			<article>
-				<%@include file="/WEB-INF/views/article/gardenbythebay.jsp" %>
-			</article>
-			<section class="commentSection">
-				<%@include file="/WEB-INF/views/common/CommentWrite.jsp" %>
-			</section>	
-			<section class="commentList">
-				<%@include file="/WEB-INF/views/common/CommentList.jsp" %>
-			</section>		
-		</section>
-		<footer>
-			<%@include file="/WEB-INF/views/common/footer.jsp" %>
-		</footer>
-	</section>
-</body>
-</html>
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<h3>"싱가포르에서 꼭 가봐야하는 관광지"</h3>
+<h1>
+	세계 최대 규모의 32,000 여개가 넘는 식물을 보유한<br>
+	플라워돔과 클라우드 포레스트돔이 있습니다.<br>
+	9-16층 높이의 수직 정원 슈퍼트리에서 가든 랩소디가<br>
+	매일 저녁 공연됩니다.
+</h1>
+<br>
+<br>
+<br>
+<img src="/resources/img/GardensByThebay/forest.png" alt="gardensbythebay"/>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<h3>"클라우드 포레스트(Cloud Forest)"</h3>
+<h1>
+	희귀 식물과 놀라운 경치를 즐길 수 있는 풍경들이 가득합니다.<br>
+	안개와 푸른 식물로 덮인 35m높이의 구조물인 클라우드 마운틴에는<br>
+	양치류와 낭상엽 식물들이 살고 있습니다.<br>
+	클라우드 마운틴에 오르며 고지대 식물들을 보며<br>
+	상상력을 펼쳐보세요.
+</h1>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<figure class="pic1 clear">
+	<img src="/resources/img/GardensByThebay/cloudForest1.jpg" alt="gardensbythebay"/>
+	<img src="/resources/img/GardensByThebay/cloudForest2.jpg" alt="gardensbythebay"/>
+</figure>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<figure class="pic1 clear">
+	<img src="/resources/img/GardensByThebay/cloudForest3.jpg" alt="gardensbythebay"/>
+	<img src="/resources/img/GardensByThebay/cloudForest4.jpg" alt="gardensbythebay"/>
+</figure>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<img src="/resources/img/GardensByThebay/cloudMountain.jpg" alt="cloudForest1"/>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<h3>"밤에도 아름다운 풍경"</h3>
+<h1>
+	야간에도 개장시에는 아름다운 조명이 함께합니다.<br>
+	낮의 풍경과 또 다름 풍경이 펼쳐집니다.<br>
+</h1>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<img src="/resources/img/GardensByThebay/cloudForestBanner.jpg" alt="cloudForest2"/>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<h3>"플라워 돔(Flower Dom)"</h3>
+<h1>
+	2015년 세계 최대규모로 기네스에 등재된 온실<br>
+	5개 대륙의 다양한 식물과 꽃이 서식하고 있습니다.<br>
+	단순한 식물원 이상의 경험을 할 수 있습니다.<br>
+</h1>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<figure class="pic1 clear">
+	<img src="/resources/img/GardensByThebay/flowerDom1.jpg" alt="gardensbythebay"/>
+	<img src="/resources/img/GardensByThebay/flowerDom2.jpg" alt="gardensbythebay"/>
+</figure>
+<figure class="pic1 clear">
+	<img src="/resources/img/GardensByThebay/flowerDom3.jpg" alt="gardensbythebay"/>
+	<img src="/resources/img/GardensByThebay/flowerDom4.jpg" alt="gardensbythebay"/>
+</figure>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<div>
+	<img src="/resources/img/GardensByThebay/thegardens-masthead-new-1680x265.jpg" alt="marinaBay"/>
+</div>

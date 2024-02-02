@@ -1,5 +1,7 @@
 package com.myspring.board.domain;
 
+import lombok.AccessLevel;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -8,7 +10,7 @@ import java.util.List;
 
 @Entity
 @Getter
-@NoArgsConstructor
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class Board {
 
     @Id
@@ -20,8 +22,15 @@ public class Board {
     private BoardType boardType;
 
     private String boardName;
+    private String viewName;
 
     @OneToMany(mappedBy = "board", fetch = FetchType.LAZY)
     private List<Comment> commentList;
 
+    @Builder
+    public Board(BoardType boardType, String boardName, String viewName) {
+        this.boardType = boardType;
+        this.boardName = boardName;
+        this.viewName = viewName;
+    }
 }

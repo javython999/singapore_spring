@@ -13,10 +13,10 @@ import java.util.Optional;
 import static org.assertj.core.api.Assertions.assertThat;
 
 @Transactional
-public class MemberServiceTest extends TestEnv {
+public class MemberRepositoryTest extends TestEnv {
 
     @Autowired
-    MemberService memberService;
+    MemberRepository memberRepository;
 
 
     @Test
@@ -31,8 +31,8 @@ public class MemberServiceTest extends TestEnv {
                 .build();
 
         // when
-        memberService.save(member);
-        Optional<Member> findMember = memberService.findById(member.getId());
+        memberRepository.save(member);
+        Optional<Member> findMember = memberRepository.findById(member.getId());
         
         // then
         assertThat(findMember.get().getId()).isEqualTo(member.getId());
@@ -52,9 +52,9 @@ public class MemberServiceTest extends TestEnv {
                 .build();
         
         // when
-        memberService.save(member);
-        memberService.delete(member);
-        Optional<Member> findMember = memberService.findById(member.getId());
+        memberRepository.save(member);
+        memberRepository.delete(member);
+        Optional<Member> findMember = memberRepository.findById(member.getId());
         
         // then
         assertThat(findMember.isPresent()).isFalse();
@@ -72,8 +72,8 @@ public class MemberServiceTest extends TestEnv {
                 .build();
 
         // when
-        memberService.save(member);
-        Member findMember = memberService.findById(member.getId()).get();
+        memberRepository.save(member);
+        Member findMember = memberRepository.findById(member.getId()).get();
 
         // then
         assertThat(findMember).isEqualTo(member);
@@ -90,8 +90,8 @@ public class MemberServiceTest extends TestEnv {
                 .build();
 
         // when
-        memberService.save(member);
-        Member loginMember = memberService.loginCheck("memberId", "memberPw");
+        memberRepository.save(member);
+        Member loginMember = memberRepository.findByLoginIdAndLoginPw("memberId", "memberPw");
 
         // then
         assertThat(loginMember).isEqualTo(member);
@@ -108,8 +108,8 @@ public class MemberServiceTest extends TestEnv {
                 .build();
 
         // when
-        memberService.save(member);
-        Member loginMember = memberService.loginCheck("fail", "fail");
+        memberRepository.save(member);
+        Member loginMember = memberRepository.findByLoginIdAndLoginPw("fail", "fail");
 
         // then
         assertThat(loginMember).isNotEqualTo(member);

@@ -36,8 +36,11 @@ public class Comment {
         this.board = board;
     }
 
-    public void update(CommentRequestDto comment) {
-        this.content = comment.getContent();
-        this.star = comment.getStar();
+    public void update(CommentRequestDto commentRequestDto) {
+        this.content = commentRequestDto.getContent();
+        this.star = commentRequestDto.getStar();
+        if(commentRequestDto.getRegDateTime() != null) {
+            this.regDateTime = commentRequestDto.getRegDateTime();
+        }
     }
 }

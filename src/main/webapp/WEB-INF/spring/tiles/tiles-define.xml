@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC
+        "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
+        "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+
+<tiles-definitions>
+    <!-- main layout -->
+    <definition name="mainLayout" template="/WEB-INF/views/tiles/layout/mainLayout.jsp">
+        <put-attribute name="header" value="/WEB-INF/views/tiles/template/header.jsp" />
+        <put-attribute name="style" value="/WEB-INF/views/tiles/template/style.jsp" />
+        <put-attribute name="script" value="/WEB-INF/views/tiles/template/script.jsp" />
+        <put-attribute name="nav" value="/WEB-INF/views/tiles/template/nav.jsp" />
+        <put-attribute name="content" value="" />
+        <put-attribute name="footer" value="/WEB-INF/views/tiles/template/footer.jsp" />
+    </definition>
+
+    <!-- board layout -->
+    <definition name="boardLayout" template="/WEB-INF/views/tiles/layout/boardLayout.jsp">
+        <put-attribute name="header" value="/WEB-INF/views/tiles/template/header.jsp" />
+        <put-attribute name="style" value="/WEB-INF/views/tiles/template/style.jsp" />
+        <put-attribute name="script" value="/WEB-INF/views/tiles/template/script.jsp" />
+        <put-attribute name="nav" value="/WEB-INF/views/tiles/template/nav.jsp" />
+        <put-attribute name="content" value="" />
+        <put-attribute name="commentWrite" value="/WEB-INF/views/tiles/template/commentWrite.jsp" />
+        <put-attribute name="commentList" value="/WEB-INF/views/tiles/template/commentList.jsp" />
+        <put-attribute name="footer" value="/WEB-INF/views/tiles/template/footer.jsp" />
+    </definition>
+
+    <definition name="*/*.main" extends="mainLayout">
+        <put-attribute name="content" value="/WEB-INF/views/{1}/{2}.jsp" />
+        <put-attribute name="title" value="{2}" />
+    </definition>
+
+    <definition name="*/*.board" extends="boardLayout">
+        <put-attribute name="content" value="/WEB-INF/views/{1}/{2}.jsp" />
+        <put-attribute name="title" value="{2}" />
+    </definition>
+</tiles-definitions>
