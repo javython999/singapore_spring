@@ -1,6 +1,6 @@
 'use strict'
 
-const bannerImg = $("#banner > img");
+const bannerImg = $("#banner_img_wrap > img");
 let current = 0;
 
 

@@ -48,18 +48,21 @@ ul > li > a {
 
 #banner {
     width: 100vw;
-    height: 100%;
+    height: 500px;
     display: block;
+}
+
+#banner_img_wrap {
+    width: 100vw;
     position: relative;
 }
 
-#banner > div > img {
+#banner > #banner_img_wrap > img {
     display:block;
     width: 100vw;
+    position:absolute;
 }
-#banner > div {
-    width: 100vw;
-}
+
 
 #banner > div > .starAVG {
     z-index: 5rem;
@@ -70,9 +73,16 @@ ul > li > a {
     color: white;
 }
 
-#contents {
+/*#contents {
     margin: 0 auto;
+}*/
+
+#contents {
+    width: 100vw;
+    height: 100%;
+    display: block;
 }
+
 
 .dom {
     width: 50vw;
